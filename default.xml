@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+
+  <remote name="Eldarion"
+          fetch="https://github.com/Mi-Eldarion"
+          revision="a13/master" />
+
+  <remote name="Titanium"
+          fetch="https://github.com/Mi-Titanium"
+          revision="a13/master" />
+
+  <remote name="al"
+          fetch="https://github.com/k4ngcaribug"
+          revision="a13/master" />
+
+  <remote  name="RennAlt"
+           fetch="https://github.com/RennAlt"
+           revision="a13/master" />
+  
   <remote name="BR-x86" fetch="https://github.com/BlissRoms-x86"/>
   <remote name="BlissRoms" fetch="https://github.com/BlissRoms" review="review.blissroms.org" revision="universe"/>
   <remote name="BlissRoms-Devices" fetch="https://github.com/BlissRoms-Devices"/>
@@ -18,6 +35,30 @@
   <remote name="lineage" fetch="https://github.com/LineageOS" revision="lineage-21.0"/>
   
   <default remote="aosp" revision="refs/tags/android-14.0.0_r67" sync-j="4"/>
+
+  <!-- Common -->
+  <project path="device/xiaomi/mititanium-common" name="android_device_xiaomi_mititanium-common"     groups="device" remote="Titanium" revision="14"/>
+  <project path="vendor/xiaomi/mititanium-common" name="proprietary_vendor_xiaomi_mititanium-common" groups="device" remote="Titanium" revision="14"/>
+  <project path="vendor/xiaomi/mititanium-common-graphics" name="proprietary_vendor_xiaomi_mititanium-common-graphics" groups="device" remote="Titanium" revision="main"/>
+  <project path="vendor/xiaomi/mititanium-common-qc" name="proprietary_vendor_xiaomi_mititanium-common-qc" groups="device" remote="Titanium" revision="main"/>
+
+ <!-- YSL -->
+  <project path="device/xiaomi/ysl"        name="device_xiaomi_ysl"        groups="device" remote="Titanium" revision="14"/>
+  <project path="vendor/xiaomi/ysl"        name="proprietary_vendor_xiaomi_ysl"    groups="device" remote="Titanium" revision="lineage-21"/>
+  <project path="kernel/xiaomi/msm8953"        name="msm-4.19"      remote="Titanium" revision="ysl/master"/>
+
+ <!-- YSL-CAMERA-V2 -->
+  <project path="device/xiaomi/ysl/camera"        name="device_xiaomi_ysl_camera_legacy-4.19"        groups="device" remote="Titanium" revision="main"/>
+
+ <!-- YSL-DTS -->
+  <project path="kernel/xiaomi/msm8953/arch/arm64/boot/dts/vendor/qcom/mi8953"        name="kernel_devicetree_xiaomi-msm8953"      remote="Titanium" revision="main"/>
+
+ <!-- YSL-MODULE -->
+  <project path="kernel/xiaomi/msm8953/techpack/xiaomi-msm8953"        name="techpack_xiaomi-msm8953"      remote="Titanium" revision="main"/>
+  <project path="hardware/xiaomi"        name="android_hardware_xiaomi"      remote="RennAlt" revision="lineage-21"/>
+
+ <!-- MISC -->
+  <project path="vendor/extra" name="vendor_extra" remote="al" revision="14" />
   
   <project name="android_external_ant-wireless_ant_client" path="external/ant-wireless/ant_client" remote="lineage" revision="846dbb2d61e119b9fd8faa0dfafe5a4f33bbd785" upstream="lineage-21.0" dest-branch="lineage-21.0" groups="qcom,sdm660"/>
   <project name="android_external_ant-wireless_ant_native" path="external/ant-wireless/ant_native" remote="lineage" revision="6e176b725fbae9db85a4ef5d04598264c637d47e" upstream="lineage-21.0" dest-branch="lineage-21.0" groups="qcom,sdm660"/>
@@ -53,7 +94,9 @@
   <project name="android_hardware_google_pixel-sepolicy" path="hardware/google/pixel-sepolicy" remote="lineage" revision="334ddc84cdb7b16cd14072082ba1e028efd6f666" upstream="lineage-21.0" dest-branch="lineage-21.0"/>
   <project name="android_hardware_lineage_livedisplay" path="hardware/lineage/livedisplay" remote="lineage" revision="05bbbfd180bf8c02b6fb81a7e4b8057868f6e4ba" upstream="lineage-21.0" dest-branch="lineage-21.0" groups="qcom,pdk-qcom"/>
   <project name="android_hardware_qcom_audio" path="hardware/qcom/audio" remote="lineage" revision="32419c39dc69120585c6badb44d391f0cff5125b" upstream="lineage-21.0" dest-branch="lineage-21.0" groups="qcom,qcom_audio,pdk-qcom"/>
-  <project name="android_hardware_qcom_audio" path="hardware/qcom-caf/msm8953/audio" remote="lineage" revision="84e1ed4fe251ff258caa202b31243486df3e9d65" upstream="lineage-21.0-caf-msm8953" dest-branch="lineage-21.0-caf-msm8953" groups="qcom,msm8953"/>
+  <project path="hardware/qcom-caf/msm8953/audio" name="android_hardware_qcom_audio_mithorium" groups="qcom,msm8953" remote="Titanium" revision="LA.UM.9.6.4.r2-04300-89xx.QSSI13r2.0" />
+  <project path="hardware/qcom-caf/msm8953/display" name="android_hardware_qcom_display_mithorium" groups="qcom" remote="Titanium" revision="LA.UM.9.6.4.r2-03900-89xx.QSSI13r2.0" />
+  <project path="hardware/qcom-caf/msm8953/media" name="android_hardware_qcom_media_mithorium" groups="qcom,msm8953" remote="Titanium" revision="LA.UM.9.6.4.r2-04300-89xx.QSSI13r2.0" />
   <project name="android_hardware_qcom_audio" path="hardware/qcom-caf/msm8996/audio" remote="lineage" revision="23afd435520190134a0bbf87fcd5b9415be92c1a" upstream="lineage-21.0-caf-msm8996" dest-branch="lineage-21.0-caf-msm8996" groups="qcom,legacy-qcom"/>
   <project name="android_hardware_qcom_audio" path="hardware/qcom-caf/msm8998/audio" remote="lineage" revision="58edf81311018fe0165e9709b08cb5a19dc6f35e" upstream="lineage-21.0-caf-msm8998" dest-branch="lineage-21.0-caf-msm8998" groups="qcom,legacy-qcom"/>
   <project name="android_hardware_qcom_audio" path="hardware/qcom-caf/sdm660/audio" remote="lineage" revision="ff3ae1e54538a93a1457d00d9b691e2f8b5a2ca0" upstream="lineage-21.0-caf-sdm660" dest-branch="lineage-21.0-caf-sdm660" groups="qcom,sdm660"/>
@@ -68,7 +111,6 @@
   <project name="android_hardware_qcom_camera" path="hardware/qcom/camera" remote="lineage" revision="bd810caf015f0cbccadef519b1f2b933d196ff33" upstream="lineage-21.0" dest-branch="lineage-21.0" groups="qcom,qcom_camera,pdk-qcom"/>
   <project name="android_hardware_qcom_data_ipacfg-mgr" path="hardware/qcom/data/ipacfg-mgr" remote="lineage" revision="a3138c71bf6adeae2b7e6b42ddc679e842b80a06" upstream="lineage-21.0" dest-branch="lineage-21.0" groups="qcom,pdk-qcom"/>
   <project name="android_hardware_qcom_display" path="hardware/qcom/display" remote="lineage" revision="d9ca15b9db92f96fc6dc8b69d81282450b9e8856" upstream="lineage-21.0" dest-branch="lineage-21.0" groups="pdk-qcom,qcom,qcom_display"/>
-  <project name="android_hardware_qcom_display" path="hardware/qcom-caf/msm8953/display" remote="lineage" revision="d0107598e13d1b7df25e97214c195a501b3ec348" upstream="lineage-21.0-caf-msm8953" dest-branch="lineage-21.0-caf-msm8953" groups="qcom"/>
   <project name="android_hardware_qcom_display" path="hardware/qcom-caf/msm8996/display" remote="lineage" revision="c188c9031a944c7c9b4ee0d6656cc8df9d2a56f1" upstream="lineage-21.0-caf-msm8996" dest-branch="lineage-21.0-caf-msm8996" groups="qcom,legacy-qcom"/>
   <project name="android_hardware_qcom_display" path="hardware/qcom-caf/msm8998/display" remote="lineage" revision="d60aec40a4aaa4a6d5367c22750341bffa882bcf" upstream="lineage-21.0-caf-msm8998" dest-branch="lineage-21.0-caf-msm8998" groups="qcom,legacy-qcom"/>
   <project name="android_hardware_qcom_display" path="hardware/qcom-caf/sdm660/display" remote="lineage" revision="2b63444088349701914fc052328ff9895c299c31" upstream="lineage-21.0-caf-sdm660" dest-branch="lineage-21.0-caf-sdm660" groups="qcom"/>
@@ -80,7 +122,6 @@
   <project name="android_hardware_qcom_display" path="hardware/qcom-caf/sm8550/display" remote="lineage" revision="f88fee79170e224fd229691aaffc2ccc0fa78199" upstream="lineage-21.0-caf-sm8550" dest-branch="lineage-21.0-caf-sm8550" groups="qcom"/>
   <project name="android_hardware_qcom_gps" path="hardware/qcom/gps" remote="lineage" revision="727a0053559ed8e8a2e8156a40dfca4520236f14" upstream="lineage-21.0" dest-branch="lineage-21.0" groups="qcom,qcom_gps,pdk-qcom"/>
   <project name="android_hardware_qcom_media" path="hardware/qcom/media" remote="lineage" revision="8a040cf05bfce08fc15139c3e4862ed657e40a61" upstream="lineage-21.0" dest-branch="lineage-21.0" groups="qcom,pdk-qcom"/>
-  <project name="android_hardware_qcom_media" path="hardware/qcom-caf/msm8953/media" remote="lineage" revision="90a808309f461f139161f504e44e341f4f6f2fb6" upstream="lineage-21.0-caf-msm8953" dest-branch="lineage-21.0-caf-msm8953" groups="qcom,msm8953"/>
   <project name="android_hardware_qcom_media" path="hardware/qcom-caf/msm8996/media" remote="lineage" revision="201a5e8f4f170830925ac9417a7969783c36c46d" upstream="lineage-21.0-caf-msm8996" dest-branch="lineage-21.0-caf-msm8996" groups="qcom,legacy-qcom"/>
   <project name="android_hardware_qcom_media" path="hardware/qcom-caf/msm8998/media" remote="lineage" revision="4f25bfc904a3e0f8b45094f9a248d3923a4fd382" upstream="lineage-21.0-caf-msm8998" dest-branch="lineage-21.0-caf-msm8998" groups="qcom,legacy-qcom"/>
   <project name="android_hardware_qcom_media" path="hardware/qcom-caf/sdm660/media" remote="lineage" revision="82b8867099d28dcb7c5ed66fa1fac08efdc8cd9e" upstream="lineage-21.0-caf-sdm660" dest-branch="lineage-21.0-caf-sdm660" groups="qcom,sdm660"/>
